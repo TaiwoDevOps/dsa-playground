@@ -36,5 +36,12 @@ void main() {
   final class1 = Solution();
 
   var res = class1.twoSum([2, 5, 5, 11], 10);
+  /**
+   * 
+ var res =  class1.twoSum([2,5,5,11], 10);
+  var res =  class1.twoSum([3,3], 6);
+  var res =  class1.twoSum([3,2,4], 6);
+  var res =  class1.twoSum([2,7,11,15], 9);
+   */
   print("the array are $res");
 }
