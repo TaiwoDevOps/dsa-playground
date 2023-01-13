@@ -50,27 +50,42 @@ nums is sorted in non-decreasing order.
 
 class Solution {
   int removeDuplicates(List<int> nums) {
-    // get array lenght
-    int tempLength = nums.length;
-
+    int currentValue = 0;
     //create new temp array
-    List<int> temp = [];
-
+    List<int> temp = nums;
+    List<int> sorted = [];
     // sort the array to ensure no duplicate
-    for (int i = 0; i < tempLength; i++) {
-      print("The value is ${nums[i]}");
+    for (int i = 0; i < nums.length; i++) {
+      if (currentValue == nums[i]) {
+        temp.removeAt(i);
+        sorted = temp;
+        temp = nums;
+        print('the temp  $temp');
+        print('the nums  $nums');
+      }
+      currentValue = nums[i];
     }
 
-    // push non duplicate values to the temp array
-
-    // push chars to fill the length of the temp array if it is not equal to initial array length
-
+    // print(temp);
     //return temp array
-    return 0;
+    return temp.length;
   }
 }
 
 void main() {
   final sl = Solution();
-  sl.removeDuplicates([1, 1, 2]);
+  sl.removeDuplicates([
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+  ]);
+  // print(res);
 }
