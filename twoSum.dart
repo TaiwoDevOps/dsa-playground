@@ -1,8 +1,5 @@
 class Solution {
   List<int> twoSum(List<int> nums, int target) {
-    //hold the array in another variable
-// List<int> temp=[];
-
     List<int> nums2 = nums;
 
 //loop through the first array
@@ -14,12 +11,11 @@ class Solution {
       //loop through the second array
       for (var j = 1; j < nums2.length; j++) {
         //iterate through the lists and see if current value of each
-        //array is equal to target
-        print(" loop two $j ${nums2[j]}");
+        //array is equal to target when current indexes of both loops are not the same
 
-        if (nums[i] + nums2[j] == target) {
-          // print("answer is ${temp[1]} ${nums2[j]}");
+        // Note: this is because the nested loop will finish before going to the next index on the outer loop
 
+        if (nums[i] + nums2[j] == target && i != j) {
           //if yes, return the index
           return [i, j];
         }
