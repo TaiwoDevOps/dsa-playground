@@ -1,7 +1,9 @@
 /**
  * @documentation
  * 
- * Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+ * Given an integer array nums sorted in non-decreasing order, remove the duplicates 
+ * in-place such that each unique element appears only once. The relative order of the elements
+ *  should be kept the same.
 
 Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
 
@@ -50,42 +52,27 @@ nums is sorted in non-decreasing order.
 
 class Solution {
   int removeDuplicates(List<int> nums) {
-    int currentValue = 0;
+    List<dynamic> temp = [];
     //create new temp array
-    List<int> temp = nums;
-    List<int> sorted = [];
+    final setData = <int>{};
     // sort the array to ensure no duplicate
-    for (int i = 0; i < nums.length; i++) {
-      if (currentValue == nums[i]) {
-        temp.removeAt(i);
-        sorted = temp;
-        temp = nums;
-        print('the temp  $temp');
-        print('the nums  $nums');
-      }
-      currentValue = nums[i];
+    for (var i = 0; i < nums.length; i++) {
+      setData.add(nums[i]);
+      temp = [...setData];
     }
 
-    // print(temp);
-    //return temp array
+    print(temp);
+    for (var i = temp.length; i < nums.length; i++) {
+      temp.add('_');
+    }
+
+    print('Temp 2 ==${temp.length} $temp');
+
     return temp.length;
   }
 }
 
 void main() {
   final sl = Solution();
-  sl.removeDuplicates([
-    0,
-    0,
-    1,
-    1,
-    1,
-    2,
-    2,
-    3,
-    3,
-    4,
-    4,
-  ]);
-  // print(res);
+  sl.removeDuplicates([1, 1, 2]);
 }

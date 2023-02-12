@@ -1,21 +1,13 @@
 class Solution {
   List<int> twoSum(List<int> nums, int target) {
-    List<int> nums2 = nums;
-
-//loop through the first array
+    //loop through the first array
     for (var i = 0; i < nums.length; i++) {
-      // temp = [i, nums[i]];
-
-      print("loop one $i ${nums[i]}  ");
-
       //loop through the second array
-      for (var j = 1; j < nums2.length; j++) {
+      for (var j = i + 1; j < nums.length; j++) {
         //iterate through the lists and see if current value of each
         //array is equal to target when current indexes of both loops are not the same
-
         // Note: this is because the nested loop will finish before going to the next index on the outer loop
-
-        if (nums[i] + nums2[j] == target && i != j) {
+        if (nums[i] + nums[j] == target) {
           //if yes, return the index
           return [i, j];
         }
@@ -23,7 +15,6 @@ class Solution {
     }
 
     //else return an empty array
-
     return [];
   }
 }
